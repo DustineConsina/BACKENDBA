@@ -16,11 +16,11 @@ class AuthController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
-            'role' => 'in:user,admin', // Optional but safe validation
+            'role' => 'in:user,admin', 
         ]);
 
         $data['password'] = Hash::make($data['password']);
-        $data['role'] = 'user';  // or whatever default role you want
+        $data['role'] = 'user';  
 
 
         $user = User::create($data);
